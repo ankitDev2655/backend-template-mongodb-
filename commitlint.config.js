@@ -14,36 +14,36 @@
  */
 
 export default {
-    extends: ["@commitlint/config-conventional"],
+    extends: ['@commitlint/config-conventional'],
 
     rules: {
         // Subject must not be empty
-        "subject-empty": [2, "never"],
+        'subject-empty': [2, 'never'],
 
         // Type must not be empty
-        "type-empty": [2, "never"],
+        'type-empty': [2, 'never'],
 
         // Maximum header length
-        "header-max-length": [2, "always", 100],
+        'header-max-length': [2, 'always', 100],
 
         // Allowed commit types
-        "type-enum": [
+        'type-enum': [
             2,
-            "always",
+            'always',
             [
-                "feat",
-                "fix",
-                "docs",
-                "style",
-                "refactor",
-                "perf",
-                "test",
-                "build",
-                "ci",
-                "chore",
-                "revert"
+                'feat',
+                'fix',
+                'docs',
+                'style',
+                'refactor',
+                'perf',
+                'test',
+                'build',
+                'ci',
+                'chore',
+                'revert'
             ]
         ],
-        "subject-case":[2, "always", "sentence-case"]
+        'subject-case':[2, 'always', 'sentence-case']
     }
 };

@@ -1,23 +1,23 @@
 module.exports = {
     apps: [
         {
-            name: "backend-template-mongodb",
-            script: "./dist/server.js",
+            name: 'backend-template-mongodb',
+            script: './dist/server.js',
             instances: 1,
-            exec_mode: "fork",
+            exec_mode: 'fork',
 
             watch: false,
 
             autorestart: true,
 
-            max_memory_restart: "512M",
+            max_memory_restart: '512M',
 
             env: {
-                NODE_ENV: "development"
+                NODE_ENV: 'development'
             },
 
             env_production: {
-                NODE_ENV: "production"
+                NODE_ENV: 'production'
             }
         }
     ]
