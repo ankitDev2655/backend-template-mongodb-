@@ -7,17 +7,16 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc",
     "start": "node dist/server.js",
-    "test": "node test.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format:check": "prettier . --check" ,
-    "format:fix": "prettier . --fix" ,
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.ts": [
-      "npm run lint:fix",
-      "npm run format:fix"
+    "**/*.ts": [
+      "eslint --fix",
+      "prettier --write"
     ]
   },
   "keywords": [
