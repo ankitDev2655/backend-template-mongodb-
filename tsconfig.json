@@ -1,0 +1,109 @@
+{
+  "compilerOptions": {
+    // ============================
+    // Project Structure
+    // ============================
+
+    // Root directory of your source code
+    "rootDir": "./src",
+
+    // Directory where compiled JavaScript will be generated
+    "outDir": "./dist",
+
+    // ============================
+    // Module Configuration
+    // ============================
+
+    // Modern Node.js module system
+    "module": "NodeNext",
+
+    // Resolve modules the same way Node.js does
+    "moduleResolution": "NodeNext",
+
+    // JavaScript version to compile to
+    "target": "ES2022",
+
+    // Include Node.js type definitions
+    "types": ["node"],
+
+    // Allow default imports like:
+    // import express from "express";
+    "esModuleInterop": true,
+
+    // Ensure file names are case-sensitive across all operating systems
+    "forceConsistentCasingInFileNames": true,
+
+    // ============================
+    // Strict Type Checking
+    // ============================
+
+    // Enable all strict type-checking options
+    "strict": true,
+
+    // Prevent implicit 'any'
+    "noImplicitAny": true,
+
+    // Enable strict null checking
+    "strictNullChecks": true,
+
+    // Enable strict function type checking
+    "strictFunctionTypes": true,
+
+    // Ensure class properties are initialized
+    "strictPropertyInitialization": true,
+
+    // Emit "use strict" in compiled JavaScript
+    "alwaysStrict": true,
+
+    // ============================
+    // Code Quality
+    // ============================
+
+    // Report unused local variables
+    "noUnusedLocals": true,
+
+    // Report unused function parameters
+    "noUnusedParameters": true,
+
+    // Ensure every code path returns a value
+    "noImplicitReturns": true,
+
+    // Safer array and object indexing
+    "noUncheckedIndexedAccess": true,
+
+    // Treat optional properties exactly as written
+    "exactOptionalPropertyTypes": true,
+
+    // ============================
+    // Build Output
+    // ============================
+
+    // Generate source maps for debugging
+    "sourceMap": true,
+
+    // Generate declaration (.d.ts) files
+    "declaration": true,
+
+    // Generate source maps for declaration files
+    "declarationMap": true,
+
+    // Speed up future builds
+    "incremental": true,
+
+    // ============================
+    // Module Features
+    // ============================
+
+    // Allow importing JSON files
+    "resolveJsonModule": true,
+
+    // Skip type checking of library declaration files
+    "skipLibCheck": true
+  },
+
+  // Include source files
+  "include": ["src"],
+
+  // Exclude generated and dependency folders
+  "exclude": ["node_modules", "dist"]
+}
