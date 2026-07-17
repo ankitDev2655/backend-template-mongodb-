@@ -1,7 +1,11 @@
+import * as sourceMapSupport from 'source-map-support';
+sourceMapSupport.install();
+
 import type { Server } from 'node:http';
 
 import app from './app.js';
 import config from './config/config.js';
+import logger from './shared/logger/logger.js';
 
 let server: Server;
 
@@ -21,7 +25,7 @@ const startServer = (): void => {
         // await connectDatabase();
 
         server = app.listen(config.PORT, () => {
-            console.info('APPLICATION_STARTED', {
+            logger.info('APPLICATION_STARTED', {
                 meta: {
                     PORT: config.PORT,
                     SERVER_URL: config.SERVER_URL,
@@ -29,7 +33,7 @@ const startServer = (): void => {
             });
         });
     } catch (error) {
-        console.error('APPLICATION_STARTUP_ERROR', {
+        logger.error('APPLICATION_STARTUP_ERROR', {
             meta: error,
         });
 
@@ -41,7 +45,7 @@ const startServer = (): void => {
  * Gracefully shutdown the application.
  */
 const shutdown = (signal: string): void => {
-    console.info(`${signal}_RECEIVED`);
+    logger.info(`${signal}_RECEIVED`);
 
     if (!server) {
         process.exit(0);
@@ -49,14 +53,14 @@ const shutdown = (signal: string): void => {
 
     server.close((error) => {
         if (error) {
-            console.error('APPLICATION_SHUTDOWN_ERROR', {
+            logger.error('APPLICATION_SHUTDOWN_ERROR', {
                 meta: error,
             });
 
             process.exit(1);
         }
 
-        console.info('APPLICATION_STOPPED');
+        logger.info('APPLICATION_STOPPED');
 
         process.exit(0);
     });

@@ -36,7 +36,7 @@ export default tseslint.config(
         },
 
         rules: {
-            'no-console': 'off',
+            'no-console': 'error',
             'no-debugger': 'error',
 
             '@typescript-eslint/no-unused-vars': [
