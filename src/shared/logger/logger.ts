@@ -3,20 +3,35 @@ import util from 'node:util';
 import path from 'node:path';
 import config from '../../config/config.js';
 import { EApplicationEnvironment } from '../constants/application.js';
+import { red, blue, yellow, green, magenta } from 'colorette';
+
+const colorizeLevel = (level: string) => {
+    switch (level) {
+        case 'ERROR':
+            return red(level);
+        case 'INFO':
+            return blue(level);
+        case 'WARN':
+            return yellow(level);
+        default:
+            return level;
+    }
+};
 
 const consoleLogFormat = format.printf((info) => {
     const { level, message, timestamp, meta } = info;
 
-    const customLevel = String(level).toUpperCase();
-    const customTimeStamp = String(timestamp);
+    const customLevel = colorizeLevel(String(level).toUpperCase());
+    const customTimeStamp = green(String(timestamp));
     const customMessage = String(message);
 
     const customMeta = util.inspect(meta, {
         showHidden: false,
         depth: null,
+        colors: true,
     });
 
-    const customLog = `${customLevel} [${customTimeStamp}] ${customMessage}\nMETA: ${customMeta}\n`;
+    const customLog = `${customLevel} [${customTimeStamp}] ${customMessage}\n${magenta('META')}: ${customMeta}\n`;
 
     return customLog;
 });
